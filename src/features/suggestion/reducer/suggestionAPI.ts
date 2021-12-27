@@ -1,6 +1,7 @@
 import axios from "axios";
 import { SuggestionResultPayload, SuggestionPayload  } from "./suggestionSlice";
-const SERVER = 'http://127.0.0.1:8000/api/suggestion'
+// const SERVER = 'http://127.0.0.1:8000/api/suggestion'
+const SERVER = 'http://192.168.0.70:8000/api/suggestion'
 const headers = {
     'Content-Type': 'application/json',
     'Authorization': 'JWT fefege..'
@@ -8,8 +9,8 @@ const headers = {
 
 
 function suggestionAPI( data: SuggestionPayload){
-    alert(JSON.stringify(data))
-    return axios.get(`${SERVER}/user/test/${data}`)
+    // alert(`API 실행 ::: ${JSON.stringify(data)}`)
+    return axios.get(`${SERVER}/user/test/${data.user_id}`)
 }
 
 function suggestionAcceptAPI(data : SuggestionResultPayload){

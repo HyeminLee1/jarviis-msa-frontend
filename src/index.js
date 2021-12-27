@@ -25,6 +25,7 @@ import { watchCreate } from 'features/history/module/historySaga';
 import { rootReducer } from 'app/store';
 import { watchBoardCreate } from 'features/board/module/boardSaga';
 import { wacthAccept, wacthReject, wacthSuggestion } from 'features/suggestion/module/suggestionSaga';
+import { wathchTaskList } from 'features/todo/module/taskSaga';
 
 // rootSaga를 만들어줘서 store에 추가해주어야 합니다.
 export default function* rootSaga() {
@@ -32,7 +33,8 @@ export default function* rootSaga() {
     [
       fork(watchLogin),fork(watchJoin),fork(watchExist),fork(watchModify),fork(watchCreate),
       fork(watchBoardCreate),
-      fork(wacthSuggestion), fork(wacthAccept), fork(wacthReject)
+      fork(wacthSuggestion), fork(wacthAccept), fork(wacthReject),
+      fork(wathchTaskList)
     ]);
 }
 

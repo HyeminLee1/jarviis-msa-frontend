@@ -55,6 +55,7 @@ const taskSlice = createSlice({
     },
 
     taskSuccess(state: taskState, action: PayloadAction<taskListDataPayload>) {
+      console.log('saga - taskSuccess 실행')
       state.taskLoading = false;
       state.taskData = action.payload;
     },

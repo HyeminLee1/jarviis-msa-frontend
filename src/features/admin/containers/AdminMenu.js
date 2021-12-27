@@ -21,7 +21,7 @@ export default function AdminMenu() {
                             <div class="page" id="p1" style={{overflow: "scroll"}}>
                                 <section id="text-focus-in"style={{marginLeft: "67px" ,textAlign: "center",marginTop: "74px"}}>
                                 <h1>admin Page</h1>
-                                <div class="adminDiv"><BarChart data= {BarData}/><LogChart/></div>
+                                <div class="adminDiv"><PieChart data= {PieData}/><LogChart/></div>
                                 </section>
                             </div>
                             <div class="page" id="p2" style={{overflow: "scroll"}}>

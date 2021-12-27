@@ -3,8 +3,6 @@ import React from "react";
 
 const SuggestionOneSingle = ({ data }) => {
 
-  // alert(data.routine)
-
   return (
     <div>
       <div
@@ -32,7 +30,7 @@ const SuggestionOneSingle = ({ data }) => {
         <div className="team-content">
           <h4>{data.contents}</h4>
           <span>{`${data.start == null ? '' : data.start} `}{data.end == null ? '' : '~'}{data.end}</span>
-          <span>{data.routine == "SUGGESTION" ? '' : `${data.routine}`}</span>
+          <span>{data.routine == null ? '' : `${data.routine}`}</span>
         </div>
       </div>
     </div>

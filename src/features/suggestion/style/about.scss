@@ -70,21 +70,21 @@
     width: 13vw;
 
     h4 {
-      font-size: 1.2vw;
+      font-size: 1vw;
       font-weight: 500;
       margin: 3.5vh 0 1vh;
       text-transform: capitalize;
     }
     span {
       display: block;
-      font-size: 1vw;
+      font-size: 0.8vw;
       font-style: italic;
     }
   }
   &:hover .team-action {
     top: 350%;
     opacity: 1;
-    width: 15.5vw;
+    width: 15.6vw;
   }
 }
 

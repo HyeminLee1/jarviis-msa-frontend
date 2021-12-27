@@ -9,8 +9,7 @@ const headers = {
 
 
 function suggestionAPI( data: SuggestionPayload){
-    // alert(`API 실행 ::: ${JSON.stringify(data)}`)
-    return axios.get(`${SERVER}/user/test/${data.user_id}`)
+    return axios.get(`${SERVER}/user/${data.user_id}`)
 }
 
 function suggestionAcceptAPI(data : SuggestionResultPayload){

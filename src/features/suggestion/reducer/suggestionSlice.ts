@@ -61,13 +61,11 @@ const suggestionSlice = createSlice({
 
     //suggestion
     suggestionRequest(state: SuggsetionState, _action: PayloadAction<SuggestionPayload>) {
-      // alert(`2. 슬라이스 :: data:: ${_action.payload.user_id}`)
       state.suggestionLoading = true;
       state.error = null;
     },
 
     suggestionSuccess(state: SuggsetionState, action: PayloadAction<SuggestionListDataPayload>) {
-      // alert(`슬라이스 success ::: ${JSON.stringify(action.payload)}`)
       state.suggestionLoading = false;
       state.suggestionData = action.payload;
     },

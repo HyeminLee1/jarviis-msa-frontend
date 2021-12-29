@@ -253,6 +253,7 @@ export default function Register3Page() {
                         
                       />
                       <label for="select0" className="input-label checkbox" value= "운동선수">운동선수</label>
+
                     </>)}
                   />
                    <Controller
@@ -269,6 +270,7 @@ export default function Register3Page() {
                         checked
                       />
                      <label for="select1" className="input-label checkbox" value= "화가">화가</label>
+                     
                     </>)}
                   />
                 

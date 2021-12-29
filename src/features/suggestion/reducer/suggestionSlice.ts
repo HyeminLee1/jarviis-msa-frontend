@@ -76,17 +76,33 @@ const suggestionSlice = createSlice({
     },
 
     //suggestionResult
-    suggestionResultRequest(state: SuggsetionState, _action: PayloadAction<SuggestionResultPayload>) {
+    suggestionAcceptRequest(state: SuggsetionState, _action: PayloadAction<SuggestionResultPayload>) {
       state.suggestionLoading = true;
       state.error = null;
     },
 
-    suggestionResultSuccess(state: SuggsetionState, action: PayloadAction<SuggestionResultPayload>) {
+    suggestionAcceptSuccess(state: SuggsetionState, action: PayloadAction<SuggestionResultPayload>) {
+      console.log('suggestionAcceptSuccess 실행')
       state.suggestionLoading = false;
       state.suggestionData = action.payload;
     },
 
-    suggestionResultFailure(state: SuggsetionState, action: PayloadAction<{ error: any }>) {
+    suggestionAcceptFailure(state: SuggsetionState, action: PayloadAction<{ error: any }>) {
+      state.suggestionLoading = false;
+      state.error = action.payload;
+    },
+
+    suggestionRejectRequest(state: SuggsetionState, _action: PayloadAction<SuggestionResultPayload>) {
+      state.suggestionLoading = true;
+      state.error = null;
+    },
+
+    suggestionRejectSuccess(state: SuggsetionState, action: PayloadAction<SuggestionResultPayload>) {
+      state.suggestionLoading = false;
+      state.suggestionData = action.payload;
+    },
+
+    suggestionRejectFailure(state: SuggsetionState, action: PayloadAction<{ error: any }>) {
       state.suggestionLoading = false;
       state.error = action.payload;
     },
@@ -106,9 +122,12 @@ export const {
   suggestionRequest,
   suggestionSuccess,
   suggestionFailure,
-  suggestionResultRequest,
-  suggestionResultSuccess,
-  suggestionResultFailure
+  suggestionAcceptRequest,
+  suggestionAcceptSuccess,
+  suggestionAcceptFailure,
+  suggestionRejectRequest,
+  suggestionRejectSuccess,
+  suggestionRejectFailure
 } = actions;
 
 export default reducer;

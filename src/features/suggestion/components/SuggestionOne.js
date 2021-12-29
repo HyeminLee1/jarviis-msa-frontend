@@ -13,6 +13,7 @@ const SuggestionOne = () => {
   const [suggestion, setSuggestion] = useState([])
   const dispatch = useDispatch();
 
+  //  유저 아이디 변경
   useEffect(() => {
     dispatch(suggestionRequest({user_id:1}));
   }, []);

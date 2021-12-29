@@ -1,6 +1,7 @@
 import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState, SuggestionPayload, suggestionRequest, SuggestionResultPayload, suggestionResultRequest
+import { RootState, suggestionAcceptRequest, SuggestionPayload, 
+  suggestionRejectRequest, suggestionRequest, SuggestionResultPayload
 } from "../reducer/suggestionSlice";
 
 export function useSuggestion(){
@@ -12,12 +13,22 @@ export function useSuggestion(){
   return { suggestionLoading, suggestionUser };
 }
 
-  export function useSuggestionResult(){
+  export function useSuggestionAccept(){
     const { suggestionLoading } = useSelector((state: RootState) => state.suggestion);
     const dispatch = useDispatch();
 
-    const result = useCallback((data: SuggestionResultPayload) => {
-      dispatch(suggestionResultRequest(data))
+    const accept = useCallback((data: SuggestionResultPayload) => {
+      dispatch(suggestionAcceptRequest(data))
     }, [])
-  return { suggestionLoading, result };
+  return { suggestionLoading, accept };
+  }
+
+  export function useSuggestionReject(){
+    const { suggestionLoading } = useSelector((state: RootState) => state.suggestion);
+    const dispatch = useDispatch();
+
+    const reject = useCallback((data: SuggestionResultPayload) => {
+      dispatch(suggestionRejectRequest(data))
+    }, [])
+  return { suggestionLoading, reject}
   }

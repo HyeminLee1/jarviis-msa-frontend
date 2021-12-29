@@ -25,6 +25,23 @@ export interface taskPayload {
   user_id: number;
 }
 
+export interface completionPayload {
+  id:number;
+  completion: boolean;
+}
+
+export interface addTaskPayload{
+  user_id: number,
+  classification: string,
+  title: string,
+  start: string,
+  end: string,
+  location: string, 
+  completion: string, 
+  description: string, 
+}
+
+
 
 //미들웨어
 export interface taskState {
@@ -37,6 +54,10 @@ export interface taskState {
 export interface ParamType {
   date: string;
 }
+export interface idParamType{
+  id:number;
+}
+
 const initialState: taskState = {
   taskLoading : false,
   taskData: null,
@@ -55,7 +76,6 @@ const taskSlice = createSlice({
     },
 
     taskSuccess(state: taskState, action: PayloadAction<taskListDataPayload>) {
-      console.log('saga - taskSuccess 실행')
       state.taskLoading = false;
       state.taskData = action.payload;
     },
@@ -64,7 +84,48 @@ const taskSlice = createSlice({
       state.taskLoading = true;
       state.error = action.payload;
     },
+    CompleteRequest(state: taskState, _action: PayloadAction<completionPayload>) {
+      state.taskLoading = true;
+      state.error = null;
+    },
 
+    CompleteSuccess(state: taskState, action: PayloadAction<completionPayload>) {
+      state.taskLoading = false;
+      state.taskData = action.payload;
+    },
+
+    CompleteFailure(state: taskState, action: PayloadAction<{ error: any }>) {
+      state.taskLoading = true;
+      state.error = action.payload;
+    },
+    addTaskRequest(state: taskState, _action: PayloadAction<addTaskPayload>) {
+      state.taskLoading = true;
+      state.error = null;
+    },
+
+    addTaskSuccess(state: taskState, action: PayloadAction<addTaskPayload>) {
+      state.taskLoading = false;
+      state.taskData = action.payload;
+    },
+
+    addTaskFailure(state: taskState, action: PayloadAction<{ error: any }>) {
+      state.taskLoading = true;
+      state.error = action.payload;
+    },    
+    deleteTaskRequest(state: taskState, _action: PayloadAction<idParamType>) {
+      state.taskLoading = true;
+      state.error = null;
+    },
+
+    deleteTaskSuccess(state: taskState, action: PayloadAction<idParamType>) {
+      state.taskLoading = false;
+      state.taskData = action.payload;
+    },
+
+    deleteTaskFailure(state: taskState, action: PayloadAction<{ error: any }>) {
+      state.taskLoading = true;
+      state.error = action.payload;
+    },
   }
 })
 
@@ -80,7 +141,16 @@ const { reducer, actions } = taskSlice;
 export const {
   taskRequest,
   taskSuccess,
-  taskFailure
+  taskFailure,
+  CompleteRequest,
+  CompleteSuccess,
+  CompleteFailure,
+  addTaskRequest,
+  addTaskSuccess,
+  addTaskFailure,
+  deleteTaskRequest,
+  deleteTaskSuccess,
+  deleteTaskFailure
 } = actions;
 
 export default reducer;

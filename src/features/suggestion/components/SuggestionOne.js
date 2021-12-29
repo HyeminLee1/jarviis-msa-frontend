@@ -8,7 +8,6 @@ import { stringify } from "querystring";
 
 
 const SuggestionOne = () => {
-  
   const [counter, setCounter] = useState(0)
   const [suggestion, setSuggestion] = useState([])
   const dispatch = useDispatch();

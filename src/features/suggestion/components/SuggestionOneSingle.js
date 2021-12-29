@@ -1,19 +1,28 @@
 import PropTypes from "prop-types";
-import React  from "react";
+import React, { useState }  from "react";
 import { suggestionAcceptRequest, suggestionRejectRequest } from "features/suggestion/reducer/suggestionSlice";
 import { useDispatch } from 'react-redux'
 
 const SuggestionOneSingle = ({ data }) => {
-  [suggestion, Setsuggestion] = useState({})
-  Setsuggestion
-  
-  console.log(`single data check ::: ${JSON.stringify(data)}`)
+  // const [counter, setCounter] = useState(0)
+  // const [suggestions, setSuggestions] = useState([])
+  // console.log(`setsuggestion 확인 :::${suggestions}`)
+  // const onRemove = id => {
+  //   const nextData = suggestion.filter(suggestion => suggestion.id !== id);
+  //       console.log(`리무브 확인 ${nextData}`);
+  //       setSuggestions(nextData);
+    // setSuggestion(suggestion.filter(suggestion => suggestion.suggestion_id !== suggestion_id));
+  // };
+  // if (data != null && counter < 1) {
+  //   setCounter(counter + 1)
+  //   setSuggestion(data)
+  // }
   const dispatch = useDispatch();
 
-  // console.log(`싱글데이터 데이터 확인`)
   function handleClick_accept(data) {
     dispatch(suggestionAcceptRequest(data));
     location.reload()
+    // onRemove
   }
 
   function handleClick_reject(data){
